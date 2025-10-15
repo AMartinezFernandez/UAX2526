@@ -1,4 +1,4 @@
-package com.uax;
+package com.ficheros;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

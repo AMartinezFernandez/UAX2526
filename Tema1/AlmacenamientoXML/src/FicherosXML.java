@@ -20,8 +20,11 @@ public class FicherosXML {
 
     public ListaCoches leerCoches() {
         try {
+            //Para trabajar con ficheros XML
             JAXBContext context = JAXBContext.newInstance(ListaCoches.class);
+            //Objeto que servirá para convertir XML en objetos Java
             Unmarshaller unmarshaller = context.createUnmarshaller();
+            //Lee el archivo XML y lo convierte en objeto Java
             return (ListaCoches) unmarshaller.unmarshal(new File(rutaArchivo));
         } catch (Exception e) {
             e.printStackTrace();
@@ -32,8 +35,11 @@ public class FicherosXML {
     public void guardarCoches(ListaCoches lista) {
         try {
             JAXBContext context = JAXBContext.newInstance(ListaCoches.class);
+            //Objeto para convertir objetos Java en XML
             Marshaller marshaller = context.createMarshaller();
+            //Indica si el XML generado está bien formateado
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            //Coge la lista y la escribe en esa ruta
             marshaller.marshal(lista, new File(rutaArchivo));
         } catch (Exception e) {
             e.printStackTrace();
