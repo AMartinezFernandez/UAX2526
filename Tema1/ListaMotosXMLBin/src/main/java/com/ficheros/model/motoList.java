@@ -1,28 +1,31 @@
 package com.ficheros.model;
-//Clase para trabajar con ficheros XML
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+
+
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlElement;
+
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @XmlRootElement(name = "motos")
-@XmlAccessorType(XmlAccessType.FIELD) //Usa todos los campos (incluso privados) directamente.
+@XmlAccessorType(XmlAccessType.FIELD) //Usa todos los campos directamente
 public class motoList implements Serializable {
 
     @XmlElement(name = "moto")
     private List<moto> motos = new ArrayList<>();
 
-    public List<moto> getMotos() {
+    public List<moto> getMotos(){
         return motos;
     }
-
-    public void addMoto(moto moto) {
+    public void addMoto(moto moto){
         motos.add(moto);
     }
-    public void setMotos(List<moto> motos) {
+    public void setMotos(List<moto> motos){
         this.motos = motos;
     }
+
 }

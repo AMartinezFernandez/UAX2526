@@ -1,12 +1,11 @@
 package com.ficheros;
 
-import java.util.Scanner;
 import com.ficheros.model.moto;
 import com.ficheros.model.motoList;
 import com.ficheros.services.binarioService;
 import com.ficheros.services.xmlService;
 
-import javax.xml.bind.JAXBException;
+import jakarta.xml.bind.JAXBException;
 import java.util.*;
 
 public class App {
@@ -15,7 +14,7 @@ public class App {
     private static final String XML_PATH = "src/main/resources/motos.xml";
 
     public static void main(String[] args) throws JAXBException {
-        Scanner sc = new Scanner(System.in);
+       Scanner sc = new Scanner(System.in);
         binarioService binService = new binarioService(BIN_PATH);
         xmlService xmlService = new xmlService(XML_PATH);
 

@@ -1,17 +1,15 @@
 package docuJSON;
-
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+/*
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.*;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class GestorJSON {
     private final String rutaArchivo = "src/main/resources/coches.json";
-    private final Gson gson = new Gson();
 
     // Constructor que asegura existencia de carpeta y archivo
     public GestorJSON() {
@@ -23,48 +21,66 @@ public class GestorJSON {
             File file = new File(rutaArchivo);
             File carpeta = file.getParentFile();
 
-            // Si la carpeta no existe, la creamos
             if (!carpeta.exists()) {
                 boolean creada = carpeta.mkdirs();
-                if (creada) {
-                    System.out.println("Carpeta creada: " + carpeta.getAbsolutePath());
-                }
+                if (creada) System.out.println("Carpeta creada: " + carpeta.getAbsolutePath());
             }
 
-            // Si el archivo no existe, lo creamos con contenido inicial vacío (lista JSON vacía)
             if (!file.exists()) {
                 boolean creado = file.createNewFile();
                 if (creado) {
                     try (Writer writer = new FileWriter(file)) {
-                        writer.write("[]");  // Lista JSON vacía para evitar errores al leer
+                        writer.write("[]");  // Lista JSON vacía
                     }
                     System.out.println("Archivo creado: " + file.getAbsolutePath());
                 }
             }
         } catch (IOException e) {
-            System.err.println("Error creando archivo o carpeta: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
     public List<Coche> leerCoches() {
         File file = new File(rutaArchivo);
-        if (!file.exists()) return new ArrayList<>();
+        List<Coche> coches = new ArrayList<>();
 
-        try (Reader reader = new FileReader(file)) {
-            //Leere lista de coches
-            Type listType = new TypeToken<List<Coche>>() {}.getType();
-            //retorna una lista de coches obtenida del reader
-            return gson.fromJson(reader, listType);
-        } catch (IOException e) {
+        if (!file.exists()) return coches;
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            StringBuilder sb = new StringBuilder();
+            String linea;
+            while ((linea = reader.readLine()) != null) {
+                sb.append(linea);
+            }
+
+            JSONArray jsonArray = new JSONArray(sb.toString());
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject obj = jsonArray.getJSONObject(i);
+                Coche coche = new Coche(
+                        obj.getString("marca"),
+                        obj.getString("modelo"),
+                        obj.getInt("año")
+                );
+                coches.add(coche);
+            }
+        } catch (Exception e) {
             e.printStackTrace();
-            return new ArrayList<>();
         }
+        return coches;
     }
 
     public void guardarCoches(List<Coche> coches) {
+        JSONArray jsonArray = new JSONArray();
+        for (Coche coche : coches) {
+            JSONObject obj = new JSONObject();
+            obj.put("marca", coche.getMarca());
+            obj.put("modelo", coche.getModelo());
+            obj.put("año", coche.getAño());
+            jsonArray.put(obj);
+        }
+
         try (Writer writer = new FileWriter(rutaArchivo)) {
-            gson.toJson(coches, writer);
+            writer.write(jsonArray.toString(4)); // Formato con indentación
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -95,4 +111,4 @@ public class GestorJSON {
             coches.forEach(System.out::println);
         }
     }
-}
+}*/
