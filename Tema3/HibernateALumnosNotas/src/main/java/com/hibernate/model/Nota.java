@@ -19,7 +19,7 @@ public class Nota {
     @Column(name = "nota")
     private double nota;
 
-    @ManyToOne
-    @JoinColumn(name = "expediente", nullable = false)
+    @ManyToOne //Un alumno puede tener muchas notas
+    @JoinColumn(name = "expediente", nullable = false) //Relación de las tablas
     private Alumno alumno;
 }

@@ -1,4 +1,4 @@
-package com.hibernate;
+package com.ejemplo.motos;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
