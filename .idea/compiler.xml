@@ -9,8 +9,9 @@
         <outputRelativeToContentRoot value="true" />
         <module name="EjercicioFicherosTextoAlumnos" />
         <module name="EjerciciosJsonMotos" />
-        <module name="BaseDatosAlumnosNotas" />
         <module name="CochesJSON" />
+        <module name="BaseDatosMotos" />
+        <module name="BaseDatosAlumnosNotas" />
         <module name="EjercicioJSONAlumnos" />
         <module name="EjercicioJSONProdcutos" />
       </profile>

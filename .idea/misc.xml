@@ -13,10 +13,11 @@
         <option value="$PROJECT_DIR$/Tema1/EjercicioJsonMotos/pom.xml" />
         <option value="$PROJECT_DIR$/Tema1/EjercicioFicherosTextoAlumnos/pom.xml" />
         <option value="$PROJECT_DIR$/Tema2/BaseDatosAlumnosNotas/pom.xml" />
+        <option value="$PROJECT_DIR$/Tema2/BaseDatosMotos/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_23_PREVIEW" project-jdk-name="openjdk-23" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21_PREVIEW" project-jdk-name="openjdk-23" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
