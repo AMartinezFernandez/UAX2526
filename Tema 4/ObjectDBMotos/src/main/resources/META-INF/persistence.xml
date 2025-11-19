@@ -4,7 +4,9 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
              version="2.1">
-
+    <!-- xmlns: indica el espacio de nombres XML para JPA. -->
+    <!-- xsi:schemaLocation: define dónde se encuentra el esquema XSD para validar este XML. -->
+    <!-- version="2.1": indica que usas la versión 2.1 de JPA. -->
     <persistence-unit name="objectdb-motos" transaction-type="RESOURCE_LOCAL">
         <provider>com.objectdb.jpa.Provider</provider>
 
@@ -16,4 +18,8 @@
     </persistence-unit>
 
 </persistence>
+
+
+
+
 

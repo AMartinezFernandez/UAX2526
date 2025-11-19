@@ -3,6 +3,10 @@ package com.ejemplo.alumnos.database;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+/*EntityManagerFactory: crea objetos EntityManager.
+EntityManager: es el objeto que permite realizar operaciones en la BD (persistir, buscar, borrar…).
+Persistence: proporciona acceso a createEntityManagerFactory().*/
+
 public class ConexionDB {
 
     private static final EntityManagerFactory emf =

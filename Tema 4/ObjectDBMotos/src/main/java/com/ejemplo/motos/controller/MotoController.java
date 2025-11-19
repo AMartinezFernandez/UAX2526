@@ -4,7 +4,7 @@ import com.ejemplo.motos.database.ConexionBD;
 import com.ejemplo.motos.model.Moto;
 
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
+import javax.persistence.TypedQuery; //Consultas JPA
 import java.util.List;
 
 public class MotoController {
