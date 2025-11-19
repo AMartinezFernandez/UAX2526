@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/Tema1/AlmacenamientoJSON/pom.xml" />
+        <option value="$PROJECT_DIR$/Tema1/EjercicioJSONProdcutos/pom.xml" />
+        <option value="$PROJECT_DIR$/Tema1/EjercicioJSONAlumnosORG/pom.xml" />
+        <option value="$PROJECT_DIR$/Tema1/EjerciciosJsonMotos/pom.xml" />
+        <option value="$PROJECT_DIR$/Tema1/AlmacenamientoJSON/src/pom.xml" />
+        <option value="$PROJECT_DIR$/Tema1/EjercicioJSONAlumnos/pom.xml" />
+        <option value="$PROJECT_DIR$/Tema1/EjercicioJsonMotos/pom.xml" />
+        <option value="$PROJECT_DIR$/Tema1/EjercicioFicherosTextoAlumnos/pom.xml" />
+        <option value="$PROJECT_DIR$/Tema2/BaseDatosAlumnosNotas/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_23_PREVIEW" project-jdk-name="openjdk-23" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
