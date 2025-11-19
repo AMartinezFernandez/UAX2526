@@ -12,13 +12,14 @@
         <property name="hibernate.connection.password"></property>
 
         <!-- Dialecto de MySQL -->
+        <!-- MySQLDialect es para indicarle cómo se tiene que comunicar con MySQl-->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 
         <!-- Mostrar SQL en consola -->
         <property name="hibernate.show_sql">false</property>
         <property name="hibernate.format_sql">false</property>
 
-        <!-- Actualización automática de esquema -->
+        <!-- Actualización automática de esquema cuando arranca la base de datos-->
         <property name="hibernate.hbm2ddl.auto">update</property>
     </session-factory>
 </hibernate-configuration>

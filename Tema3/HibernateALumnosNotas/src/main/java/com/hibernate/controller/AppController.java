@@ -91,16 +91,17 @@ public class AppController {
         Alumno alumno = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             alumno = session.get(Alumno.class, expediente);
+            if (alumno != null) {
+                System.out.print("Nota: ");
+                double valorNota = sc.nextDouble();
+                sc.nextLine();
+                gestionBD.insertarNota(alumno, valorNota);
+            } else {
+                System.out.println("Alumno no encontrado.");
+            }
         }
 
-        if (alumno != null) {
-            System.out.print("Nota: ");
-            double valorNota = sc.nextDouble();
-            sc.nextLine();
-            gestionBD.insertarNota(alumno, valorNota);
-        } else {
-            System.out.println("Alumno no encontrado.");
-        }
+
     }
 
     // Modificar nota por expediente
