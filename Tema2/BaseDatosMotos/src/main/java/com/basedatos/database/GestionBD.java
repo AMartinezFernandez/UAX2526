@@ -4,17 +4,63 @@ import com.basedatos.model.Moto;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import com.basedatos.database.ConexionBD;
 
+
+/**
+ * Clase encargada de gestionar la conexión y operaciones con la base de datos MySQL.
+ * Incluye métodos para crear la base de datos y tablas si no existen, así como CRUD para motos.
+ */
 public class GestionBD {
 
-    // Lista de motos en memoria
-    private List<Moto> listaMotos = new ArrayList<>();
+    /**
+     * Método que inicializa la base de datos.
+     * - Establece conexión con la BD.
+     * - Selecciona la BD.
+     * - Crea la tabla "motos" si no existe.
+     */
+    private void inicializarBD() {
+        // 🔹 1️⃣ Primera conexión: al servidor sin indicar BD
+        try (Connection connRoot = DriverManager.getConnection("jdbc:mysql://localhost:8889/", "root", "root");
+             Statement stmt = connRoot.createStatement()) {
+        } catch (SQLException e) {
+            System.err.println("❌ Error al crear la base de datos: " + e.getMessage());
+        }
 
-    // INSERTAR
+        // 🔹 2️⃣ Segunda conexión: ya conectados a la base 'uax'
+        try (Connection connDB = ConexionBD.conectar(); // Ahora SI apunta a jdbc:mysql://localhost:8889/uax
+             Statement stmt = connDB.createStatement()) {
+            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS motos (" +
+                    "id INT AUTO_INCREMENT PRIMARY KEY, " +
+                    "marca VARCHAR(50), " +
+                    "modelo VARCHAR(50), " +
+                    "cilindrada VARCHAR(10))");
+            System.out.println("✔ Tabla 'motos' verificada o creada");
+        } catch (SQLException e) {
+            System.err.println("❌ Error al crear tabla 'motos': " + e.getMessage());
+        }
+    }
+
+    /**
+     * Constructor de GestionBD.
+     * Llama al método inicializarBD() para asegurarse de que la BD y tablas estén listas.
+     */
+    public GestionBD() {
+        inicializarBD();
+    }
+
+    // Lista que almacena temporalmente las motos recuperadas de la base de datos
+    private List<Moto> listaMotos = new ArrayList<>(); // en ficheros si es obligatoria la lista para pasar a json, u otros
+
+    /**
+     * Inserta una nueva moto en la base de datos.
+     * @param moto Objeto de tipo Moto con los datos a insertar.
+     */
     public void insertarMoto(Moto moto) {
         String sql = "INSERT INTO motos (marca, modelo, cilindrada) VALUES (?, ?, ?)";
         Connection conn = ConexionBD.conectar();
 
+        // Preparamos la sentencia SQL para insertar datos de forma segura
         try (PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, moto.getMarca());
             stmt.setString(2, moto.getModelo());
@@ -28,7 +74,10 @@ public class GestionBD {
         }
     }
 
-    // LEER
+    /**
+     * Lee todas las motos de la base de datos.
+     * @return Lista de objetos Moto recuperados.
+     */
     public List<Moto> leerMotos() {
         listaMotos.clear();
         String sql = "SELECT * FROM motos";
@@ -38,13 +87,14 @@ public class GestionBD {
              ResultSet rs = stmt.executeQuery(sql)) {
 
             while (rs.next()) {
-                Moto moto = new Moto(
+                // Recuperamos los datos de cada fila del resultado y creamos un objeto Moto
+                Moto m = new Moto(
                         rs.getInt("id"),
                         rs.getString("marca"),
                         rs.getString("modelo"),
                         rs.getString("cilindrada")
                 );
-                listaMotos.add(moto);
+                listaMotos.add(m);
             }
 
         } catch (SQLException e) {
@@ -56,7 +106,11 @@ public class GestionBD {
         return listaMotos;
     }
 
-    //MOSTRAR DATOS DE UNA MOTO EN CONCRETO
+    /**
+     * Lee motos filtrando por marca.
+     * @param marcaBuscada Marca que se desea buscar.
+     * @return Lista de motos que coinciden con la búsqueda.
+     */
     public List<Moto> leerMotosPorMarca(String marcaBuscada) {
         listaMotos.clear();
         String sql = "SELECT * FROM motos WHERE marca LIKE ?";
@@ -84,7 +138,10 @@ public class GestionBD {
         return listaMotos;
     }
 
-    // ELIMINAR
+    /**
+     * Elimina una moto de la base de datos según su ID.
+     * @param id Identificador de la moto a eliminar.
+     */
     public void eliminarMoto(int id) {
         String sql = "DELETE FROM motos WHERE id = ?";
         Connection conn = ConexionBD.conectar();
@@ -104,6 +161,10 @@ public class GestionBD {
         }
     }
 
+    /**
+     * Devuelve la lista de motos almacenadas temporalmente.
+     * @return Lista de motos.
+     */
     public List<Moto> getListaMotos() {
         return listaMotos;
     }
