@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConexionBD {
-    private static final String URL = "jdbc:mysql://localhost:3306/uax";
+    private static final String URL = "jdbc:mysql://localhost:8889/uax";
     private static final String USER = "root";
-    private static final String PASS = "";
+    private static final String PASS = "root";
 
     public static Connection conectar(){
         try {
@@ -16,6 +16,8 @@ public class ConexionBD {
         }
         catch (SQLException | ClassNotFoundException e){
             System.out.println("Error al conectar con la base de datos");
+            System.out.println("Detalles del error: " + e.getMessage());
+            e.printStackTrace();
             return null;
         }
     }
