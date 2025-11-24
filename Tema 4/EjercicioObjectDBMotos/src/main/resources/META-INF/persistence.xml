@@ -7,17 +7,18 @@
     <!-- xmlns: indica el espacio de nombres XML para JPA. -->
     <!-- xsi:schemaLocation: define dónde se encuentra el esquema XSD para validar este XML. -->
     <!-- version="2.1": indica que usas la versión 2.1 de JPA. -->
-    <persistence-unit name="objectdb-universidad" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="objectdb-motos" transaction-type="RESOURCE_LOCAL">
         <provider>com.objectdb.jpa.Provider</provider>
 
-        <class>com.ejemplo.alumnos.model.Alumno</class>
+        <class>com.ejemplo.motos.model.Moto</class>
 
         <properties>
-            <property name="javax.persistence.jdbc.url" value="$objectdb/db/universidad.odb"/>
+            <property name="javax.persistence.jdbc.url" value="$objectdb/db/concesionario.odb"/>
         </properties>
     </persistence-unit>
 
 </persistence>
+
 
 
 

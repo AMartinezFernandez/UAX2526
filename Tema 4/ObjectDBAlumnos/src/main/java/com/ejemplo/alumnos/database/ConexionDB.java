@@ -11,7 +11,7 @@ public class ConexionDB {
 
     private static final EntityManagerFactory emf =
             //Crea directamente el archivo alumnos.db dentro de la carpeta db.
-            Persistence.createEntityManagerFactory("objectdb:db/alumnos.odb");
+            Persistence.createEntityManagerFactory("objectdb:db/universidad.odb");
 
     public static EntityManagerFactory getEntityManagerFactory() {
         return emf;
