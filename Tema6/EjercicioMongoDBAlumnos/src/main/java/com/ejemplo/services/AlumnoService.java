@@ -21,7 +21,7 @@ public class AlumnoService {
         this.collection = MongoDBConnection.getCollection();
     }
 
-    // Helper: Alumno -> Document
+    // Alumno -> Document
     private Document toDocument(Alumno a) {
         Document d = new Document();
         d.append("expediente", a.getExpediente());
@@ -35,7 +35,7 @@ public class AlumnoService {
         return d;
     }
 
-    // Helper: Document -> Alumno
+    // Document -> Alumno
     private Alumno fromDocument(Document d) {
         if (d == null) return null;
         String expediente = d.getString("expediente");

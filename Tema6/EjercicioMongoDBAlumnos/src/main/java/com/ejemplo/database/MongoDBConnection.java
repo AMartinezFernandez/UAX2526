@@ -14,7 +14,7 @@ public class MongoDBConnection {
 
     private static MongoClient mongoClient;
 
-    // Obtener cliente singleton
+    // Obtener cliente
     public static MongoClient getClient() {
         if (mongoClient == null) {
             mongoClient = MongoClients.create(CONNECTION_STRING);
