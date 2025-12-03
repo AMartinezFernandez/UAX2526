@@ -5,10 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8f44da4-e59e-4b7a-aec7-a3b2863c96b2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioMongoDBMotos/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioMongoDBMotos/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioMongoDBMotos/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioMongoDBMotos/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioMongoDBMotos/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioMongoDBMotos/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioMongoDBMotos/src/main/java/com/ejemplo/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioMongoDBMotos/src/main/java/com/ejemplo/controller/MotoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioMongoDBMotos/src/main/java/com/ejemplo/database/MongoDBConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioMongoDBMotos/src/main/java/com/ejemplo/model/Moto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioMongoDBMotos/src/main/java/com/ejemplo/services/MotoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../EjercicioMongoDBMotos/src/test/java/com/ejemplo/AppTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ejemplo/database/MongoDBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ejemplo/database/MongoDBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ejemplo/services/AlumnoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ejemplo/services/AlumnoService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
